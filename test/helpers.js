@@ -4,7 +4,8 @@ import { mount, render, shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
-configure({ adapter: new Adapter() });
+
+configure({ adapter: new Adapter() });  //lto use enzyme
 global.expect = expect;
 global.sinon = sinon;
 global.spy = spy;

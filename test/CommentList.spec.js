@@ -3,7 +3,7 @@ import CommentList from '../src/components/CommentList';
 
 describe('<CommentList />', () => {
 
-  const cb = (args) => 23;
+  const cb = (argggggs) => 23;
 
   // Shallow
 
