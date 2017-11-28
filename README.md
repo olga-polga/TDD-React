@@ -1,9 +1,27 @@
-# React TDD Enzyme
--
+## Synopsis
 
-A sample working boilerplate on how to set up a testing suite with Webpack, React, Mocha, Chai and enzyme.
+Minimal React js app using Mocha + chai + enzyme for testing
 
-1) Install the dependencies with `npm install`
-2) Run the tests either once (`npm run test`) on in TDD mode (`npm run test:watch`)
+## Prerequisites:
 
-Follow along the tutorial on the blog post:
+install `node` and `npm` locally
+
+## Installation
+```
+npm install babel-preset-react -D
+```
+
+## Run locally (http://localhost:8080/)
+```
+npm run dev
+```
+
+## Test
+```
+npm test
+```
+
+## Build + Deploy to PCF  (edit manifest.yml as needed)
+```
+npm run deploy
+```
