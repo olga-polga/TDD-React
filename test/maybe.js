@@ -6,6 +6,6 @@ describe('maybeFirst', function() {
     it('returns the first element of an array', function() {
         var result = maybeFirst([1, 2, 3]);
 
-        assert.equal(result, 1, 'maybeFirst([1, 2, 3]) is 1');
+        assert.equal(result, 3, 'maybeFirst([1, 2, 3]) is 1');
     });
 });

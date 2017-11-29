@@ -8,7 +8,7 @@ install `node` and `npm` locally
 
 ## Installation
 ```
-npm install babel-preset-react -D
+npm install 
 ```
 
 ## Run locally (http://localhost:8080/)
@@ -25,3 +25,5 @@ npm test
 ```
 npm run deploy
 ```
+
+
