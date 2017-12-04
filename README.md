@@ -4,26 +4,26 @@ Minimal React js app using Mocha + chai + enzyme for testing
 
 ## Prerequisites:
 
-install `node` and `npm` locally
+install `yarn`: https://yarnpkg.com/lang/en/docs/install/
 
-## Installation
+## Install required packages:
 ```
-npm install 
+yarn add webpack babel-core babel-loader babel-preset-react
 ```
 
 ## Run locally (http://localhost:8080/)
 ```
-npm run dev
+yarn run dev
 ```
 
 ## Test
 ```
-npm test
+yarn test
 ```
 
 ## Build + Deploy to PCF  (edit manifest.yml as needed)
 ```
-npm run deploy
+yarn run deploy
 ```
 
 
