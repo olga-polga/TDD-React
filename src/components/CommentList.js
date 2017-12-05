@@ -1,48 +1,51 @@
 import React, {Component, PropTypes} from 'react';
 import Comment from './Comment';
-import InactivityTimer from './InactivityTimer';
+import EditArea from './EditArea';
 import Critter from './Critter';
 
 export default class CommentList extends Component {
     constructor(props) {
         super(props);
-
-
-        this.state = {comments: [], critter: new Critter("Winston", 3), timer: new InactivityTimer(3000, this.foo)};
-        this.increment = this.increment.bind(this);
-        this.foo = this.foo.bind(this);
-        this.reset = this.reset.bind(this);
+        this.state = {comments: [], critter: new Critter("Winston", 3)};
         this.reverseComments = this.reverseComments.bind(this);
+        this.askCritter = this.askCritter.bind(this);
+        this.feedCritter = this.feedCritter.bind(this);
+      //  this.saveComments = this.saveComments.bind(this);
     }
 
-    foo() {
-        alert("Hello from foo!" );
-    }
+
 
     componentDidMount() {
         this.setState({
             comments: ['Comment number one', 'Comment number two']
         });
-        setInterval(function() {this.state.timer.increment(1000)}.bind(this), 1000);
+
 
     }
 
-    reset() {
-        this.state.timer.reset();
-    }
+
 
     renderComments(comments) {
         return comments.map((comment, idx) => <Comment key={idx} comment={comment}/>);
     }
 
-    increment() {
-        this.state.timer.increment(1);
+
+    saveComments( ) {
+       alert("I am a callback")
+       this.state.comments.push("fsdfdfgggg");
     }
 
-    reverseComments() {
+    askCritter( ) {
         this.state.critter.talk();
+    }
+
+    feedCritter( ) {
+        this.state.critter.increase(1);
+    }
+    reverseComments() {
+
         const {comments} = this.state;
-        this.state.timer.reset();
+
 
         const newComments = comments.map(comment => comment
             .split('')
@@ -55,13 +58,16 @@ export default class CommentList extends Component {
 
     render() {
         const commentsNode = this.renderComments(this.state.comments);
+
         return (
             <div className="comments-list">
 
                 {commentsNode}
+                <EditArea callback={this.saveComments.bind(this)}/>
+                <br/>
                 <button onClick={this.reverseComments}>{this.props.buttonValueReverse}</button>
-                <button onClick={this.report}>{this.props.buttonValueReport}</button>
-                <button onClick={this.reset}>{this.props.buttonValueReset}</button>
+                <button onClick={this.feedCritter}>{this.props.buttonValueFeedCritter}</button>
+                <button onClick={this.askCritter}>{this.props.buttonValueAskCritter}</button>
             </div>
         )
     }
@@ -69,7 +75,7 @@ export default class CommentList extends Component {
 
 CommentList.defaultProps = {
     buttonValueReverse: 'Reverse ',
-    buttonValueReport: 'Report ',
-    buttonValueReset: 'Reset '
+    buttonValueAskCritter: 'Ask the Critter ',
+    buttonValueFeedCritter: 'Feed the Critter '
 }
 

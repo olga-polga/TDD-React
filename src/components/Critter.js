@@ -3,7 +3,7 @@ export default function Critter(lName, money){
     this.money = money;
     this.talk = function(){
         var msg = "Hi! my name is " + this.name;
-        msg += " and I’ own  " + this.money + " coins";
+        msg += " and I own  " + this.money + " coins";
         alert(msg);
     }
 
