@@ -7,22 +7,16 @@ export default class CommentList extends Component {
     constructor(props) {
         super(props);
         this.state = {comments: [], critter: new Critter("Winston", 3)};
-        this.reverseComments = this.reverseComments.bind(this);
         this.askCritter = this.askCritter.bind(this);
         this.feedCritter = this.feedCritter.bind(this);
-      //  this.saveComments = this.saveComments.bind(this);
+        this.saveComments = this.saveComments.bind(this);
     }
-
-
 
     componentDidMount() {
         this.setState({
-            comments: ['Comment number one', 'Comment number two']
+            comments: ['Comments are saved after a period of inactivity', 'You can also save your new comment explicitly']
         });
-
-
     }
-
 
 
     renderComments(comments) {
@@ -31,8 +25,10 @@ export default class CommentList extends Component {
 
 
     saveComments( ) {
-       alert("I am a callback")
-       this.state.comments.push("fsdfdfgggg");
+       // alert("I am a callback function and being passed as a property to a component")
+        var updates = this.state.comments.slice()
+        updates.push(this.refs.editArea.refs.valuable_comment.value)
+        this.setState({ comments: updates })
     }
 
     askCritter( ) {
@@ -42,19 +38,6 @@ export default class CommentList extends Component {
     feedCritter( ) {
         this.state.critter.increase(1);
     }
-    reverseComments() {
-
-        const {comments} = this.state;
-
-
-        const newComments = comments.map(comment => comment
-            .split('')
-            .reverse()
-            .join('')
-        );
-
-        this.setState({comments: newComments});
-    }
 
     render() {
         const commentsNode = this.renderComments(this.state.comments);
@@ -63,9 +46,9 @@ export default class CommentList extends Component {
             <div className="comments-list">
 
                 {commentsNode}
-                <EditArea callback={this.saveComments.bind(this)}/>
+                <EditArea ref="editArea" callback={this.saveComments} />
                 <br/>
-                <button onClick={this.reverseComments}>{this.props.buttonValueReverse}</button>
+                <button onClick={this.saveComments}>{this.props.buttonValueSave}</button>
                 <button onClick={this.feedCritter}>{this.props.buttonValueFeedCritter}</button>
                 <button onClick={this.askCritter}>{this.props.buttonValueAskCritter}</button>
             </div>
@@ -74,7 +57,7 @@ export default class CommentList extends Component {
 }
 
 CommentList.defaultProps = {
-    buttonValueReverse: 'Reverse ',
+    buttonValueSave: 'Explicit Save ',
     buttonValueAskCritter: 'Ask the Critter ',
     buttonValueFeedCritter: 'Feed the Critter '
 }
