@@ -26,7 +26,7 @@ export default class EditArea extends Component {
 
         return (
             <textarea rows="5"
-                      className="text"
+                      className="edit-area"
                       name="comment"
                       placeholder="Add new comment here..."
                       ref="valuable_comment"

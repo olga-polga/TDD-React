@@ -31,16 +31,16 @@ describe('<CommentList />', () => {
   // Render
 
   it('renders a button name', () => {
-    const wrapper = render(<CommentList buttonValue="myButton"/>);
+    const wrapper = render(<CommentList buttonValueSave="myButton"/>);
     expect(wrapper.find('button').text()).to.contain('myButton');
   });
 
-  it('reverses the comments on the button click', () => {
+  it('saves a new comment on the button click', () => {
     const wrapper = mount(<CommentList />);
 
     wrapper.setState({ comments: ['hello'] });
-    wrapper.find('button').simulate('click');
-    expect(wrapper.state().comments[0]).to.equal('olleh');
+    wrapper.find('button.buttonValueSave').simulate('click');
+    expect(wrapper.state().comments[0]).to.equal('hello');
   });
 
 });

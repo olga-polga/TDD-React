@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import CommentList from './components/CommentList';
-
+import './stylesheets/main.scss';
 class Root extends Component {
   render() {
     return (
