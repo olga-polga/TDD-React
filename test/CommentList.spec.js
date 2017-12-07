@@ -39,7 +39,7 @@ describe('<CommentList />', () => {
     const wrapper = mount(<CommentList />);
 
     wrapper.setState({ comments: ['hello'] });
-    wrapper.find('button.buttonValueSave').simulate('click');
+    wrapper.findWhere(n => n.type() === 'button' && n.contains('Explicit Save')).simulate('click');
     expect(wrapper.state().comments[0]).to.equal('hello');
   });
 

@@ -8,7 +8,7 @@ install `yarn`: https://yarnpkg.com/lang/en/docs/install/
 
 ## Install required packages:
 ```
-yarn add webpack babel-core babel-loader babel-preset-react
+yarn add webpack-dev-server -D
 ```
 
 ## Run locally (http://localhost:8080/)

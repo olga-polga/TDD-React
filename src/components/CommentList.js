@@ -57,8 +57,8 @@ export default class CommentList extends Component {
 }
 
 CommentList.defaultProps = {
-    buttonValueSave: 'Explicit Save ',
-    buttonValueAskCritter: 'Ask the Critter ',
-    buttonValueFeedCritter: 'Feed the Critter '
+    buttonValueSave: 'Explicit Save',
+    buttonValueAskCritter: 'Ask the Critter',
+    buttonValueFeedCritter: 'Feed the Critter'
 }
 
