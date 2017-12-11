@@ -4,11 +4,11 @@
   "description": "",
   "scripts": {
     "test": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive",
-    "test:watch": "npm test -- --watch",
+    "test:watch": "yarn test -- --watch",
     "start": "node ./src/main.js",
     "dev": "webpack-dev-server --watch-poll",
     "build": "webpack -p --progress --colors",
-    "deploy": "npm run build && cf push -p public"
+    "deploy": "yarn run build && cf push -p public"
   },
   "keywords": [],
   "author": "Olga <olga.penina@emc.com>",
