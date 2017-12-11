@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import Comment from './Comment';
 import EditArea from './EditArea';
 import Critter from './Critter';
-
+import {ToastContainer} from 'react-toastr';
 export default class CommentList extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +32,10 @@ export default class CommentList extends Component {
     }
 
     askCritter( ) {
-        this.state.critter.talk();
+        this.refs.toastContainer.success(
+            this.state.critter.talk(),
+            "Message from the Critter:"
+        );
     }
 
     feedCritter( ) {
@@ -44,13 +47,14 @@ export default class CommentList extends Component {
 
         return (
             <div className="comments-list">
-
+            <ToastContainer ref="toastContainer" className="toast-top-right"/>
                 {commentsNode}
                 <EditArea ref="editArea" callback={this.saveComments} />
                 <br/>
                 <button onClick={this.saveComments}>{this.props.buttonValueSave}</button>
                 <button onClick={this.feedCritter}>{this.props.buttonValueFeedCritter}</button>
                 <button onClick={this.askCritter}>{this.props.buttonValueAskCritter}</button>
+
             </div>
         )
     }
