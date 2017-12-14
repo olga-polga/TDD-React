@@ -6,7 +6,7 @@ class Root extends Component {
   render() {
     return (
       <div>
-        <h1>React TDD 101</h1>
+        <h1>TDD React in the Cloud</h1>
         <CommentList/>
       </div>
     );
