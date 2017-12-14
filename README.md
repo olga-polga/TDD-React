@@ -28,7 +28,7 @@ yarn run deploy
 
 ## Deploy to GCP  (edit app.yaml as needed)
 ```
-yarn run deploy
+gcloud app deploy
 ```
 
 
